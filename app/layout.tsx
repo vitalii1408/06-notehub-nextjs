@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
+import 'modern-normalize/modern-normalize.css';
 import './globals.css';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 
 export const metadata: Metadata = {
   title: 'NoteHub',
@@ -9,7 +13,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <TanStackProvider>
+          <Header />
+          {children}
+          <Footer />
+        </TanStackProvider>
+      </body>
     </html>
   );
 }
