@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import 'modern-normalize/modern-normalize.css';
 import './globals.css';
 import Header from '@/components/Header/Header';
@@ -10,7 +11,11 @@ export const metadata: Metadata = {
   description: 'NoteHub — app for creating and managing notes',
 };
 
-export default function RootLayout({ children }: LayoutProps<'/'>) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
